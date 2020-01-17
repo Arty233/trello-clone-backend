@@ -1,6 +1,7 @@
 module Api
   class UsersController < ApiController
 
+
     private
 
     def resource_class

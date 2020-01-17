@@ -13,6 +13,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :users
+    resources :boards
+    resources :columns
+    resources :cards
+    resources :teams
   end
 
   root 'welcome#index'

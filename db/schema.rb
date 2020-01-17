@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_13_151411) do
+ActiveRecord::Schema.define(version: 2020_01_17_120353) do
 
   create_table "boards", force: :cascade do |t|
     t.string "name"
@@ -28,7 +28,9 @@ ActiveRecord::Schema.define(version: 2020_01_13_151411) do
     t.integer "column_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
     t.index ["column_id"], name: "index_cards_on_column_id"
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "columns", force: :cascade do |t|
@@ -60,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_01_13_151411) do
   end
 
   add_foreign_key "cards", "columns"
+  add_foreign_key "cards", "users"
   add_foreign_key "columns", "boards"
   add_foreign_key "teams", "boards"
   add_foreign_key "teams", "users"
